@@ -1113,6 +1113,11 @@ body {
     flex-wrap: wrap;
 }
 
+.hidden {
+  display: none;
+}
+
+
 .contact form .input-box input,
 .contact form textarea {
     width: 100%;
