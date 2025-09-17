@@ -3,179 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of John Otieno, Web Developer">
+    <meta name="keywords" content="web developer, portfolio, JavaScript, Python, Django, React">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>John Otieno portfolio</title>
+    <title>John Otieno | Web Developer Portfolio</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>  
-        <a href="#home" class="logo">John Otieno</a>
-        <div class='bx bx-menu' id="menu-icon"></div>            
-        <ul class="navbar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact Me</a></li>   
-        </ul>     
+    <header class="header">  
+        <a href="#home" class="logo">J</a>
+        <button class="menu-toggle" id="menu-icon" aria-label="Toggle navigation menu">
+            <i class='bx bx-menu'></i>
+        </button>            
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>   
+            </ul>     
+        </nav>
     </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">John Vernest Otieno</h1>
+                <h2 class="hero-subtitle">Full Stack Web Developer</h2>
+                <p class="hero-description">
+                    I'm a dedicated software developer with expertise in building responsive, user-friendly web applications. 
+                    Passionate about creating efficient solutions and continuously expanding my technical knowledge.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/john-otieno-2b4bbb306" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://github.com/John-V-Coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://www.instagram.com/coco.veey" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://x.com/Omondijohn7880" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                </div>
+                <div class="hero-cta">
+                    <a href="assets/cv.pdf" class="btn btn-primary" download="John_Otieno_CV.pdf">Download CV</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/image.png" alt="John Otieno - Professional Portrait" loading="lazy">
+            </div>
+        </section>    
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="section-header">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://l450v.alamy.com/450v/2axj6je/laptop-with-code-on-screen-hanging-over-icons-programming-app-software-development-web-coding-isometric-conceptual-illustration-about-collaboration-2axj6je.jpg" alt="Web Development Illustration" loading="lazy">
+                </div>   
+                <div class="about-content">
+                    <h3 class="about-title">Professional Web Developer</h3>
+                    <p class="about-text">
+                        I am a results-driven software developer with a strong foundation in both front-end and back-end technologies. 
+                        My approach combines technical expertise with problem-solving skills to deliver high-quality digital solutions.
+                    </p>
+                    
+                    <div class="skills-section">
+                        <h4 class="skills-title">Technical Skills</h4>
+                        <div class="skills-container">
+                            <div class="skill-category">
+                                <h5>Frontend</h5>
+                                <ul class="skill-list">
+                                    <li class="skill-item">HTML5</li>
+                                    <li class="skill-item">CSS3/Sass</li>
+                                    <li class="skill-item">JavaScript (ES6+)</li>
+                                    <li class="skill-item">React.js</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h5>Backend</h5>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Node.js</li>
+                                    <li class="skill-item">Express.js</li>
+                                    <li class="skill-item">Python</li>
+                                    <li class="skill-item">Django</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h5>Database</h5>
+                                <ul class="skill-list">
+                                    <li class="skill-item">MongoDB</li>
+                                    <li class="skill-item">SQL</li>
+                                    <li class="skill-item">Firebase</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h5>Tools</h5>
+                                <ul class="skill-list">
+                                    <li class="skill-item">Git/GitHub</li>
+                                    <li class="skill-item">Docker</li>
+                                    <li class="skill-item">VS Code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="about-contact">
+                        Interested in working together or have questions? 
+                        <a href="mailto:omondijohn669@gmail.com" class="email-link">omondijohn669@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Section -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="section-header">
+                <h2 class="section-title">My <span>Work</span></h2>
+                <p class="section-subtitle">Recent projects and case studies</p>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="assets/1.jpg" alt="Fullstack Project" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Green Future Society</h3>
+                        <p class="portfolio-description">
+                            A full-stack sustainability platform built with Django, Python, and modern frontend technologies.
+                        </p>
+                        <ul class="portfolio-tech">
+                            <li>Django</li>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/John-V-Coder/GreenFutureSociety.git" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                            <a href="#" class="btn btn-primary" aria-disabled="true">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
 
-    <!--home-->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Code, master</h3>
-            <h1>Vernest</h1>
-            <h3>I'm a<span class="multiple-text">Web Developer</span></h3>
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="assets/2.jpg" alt="Web Design Project" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Zen Den for Scholars</h3>
+                        <p class="portfolio-description">
+                            An educational platform focusing on clean, accessible design and intuitive user experience.
+                        </p>
+                        <ul class="portfolio-tech">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                        </ul>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/John-V-Coder/Zen_Den_For_Scholars.git" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                            <a href="#" class="btn btn-primary" aria-disabled="true">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
 
-            <p>I am a God-fearing individual passionate about technology and problem-solving. I enjoy learning new skills and staying updated with the latest in software development.
-
-            I work well in teams and focus on delivering quality solutions that make a positive impact. With a growth mindset and strong values, I aim to contribute meaningfully to the tech industry.</p>
-
-            <div class="social-media">
-                <a href="https://www.linkedin.com/in/john-otieno-2b4bbb306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/John-V-Coder"><i class='bx bxl-github'></i></a>
-                <a href="https://www.instagram.com/coco.veey?igsh=MTlieHIyOGxrcGRldA=="><i class='bx bxl-instagram' ></i></a>
-                <a href="https://x.com/Omondijohn7880?t=CjQXLday_H-DDt6PSwobmg&s=09"><i class='bx bxl-twitter' ></i></a>
+                <article class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="assets/3.png" alt="Mobile App Project" loading="lazy">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-name">Mobile Application</h3>
+                        <p class="portfolio-description">
+                            A cross-platform mobile application built with modern frameworks for optimal performance.
+                        </p>
+                        <ul class="portfolio-tech">
+                            <li>Kotlin</li>
+                            <li>Jetpack Compose</li>
+                            <li>Firebase</li>
+                        </ul>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/John-V-Coder/MobileApp.git" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                <i class='bx bxl-github'></i> View Code
+                            </a>
+                            <a href="#" class="btn btn-primary" aria-disabled="true">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-subtitle">Let's discuss your project</p>
             </div>
 
-            <!--<a href="#" class="btn">Download CV</a>-->
-            <a href="assets/cv.pdf"class="btn" download="CV.pdf">Download My CV</a>
+            <div class="contact-container">
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+                    <input type="hidden" name="form-name" value="contact">
+                    <div class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </div>
 
+                    <div class="form-group">
+                        <input type="text" name="full_name" placeholder="Full Name" required class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required class="form-control"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                </form>
+
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Contact Information</h3>
+                    <ul class="contact-details">
+                        <li class="contact-item">
+                            <i class='bx bx-envelope'></i>
+                            <span>omondijohn669@gmail.com</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class='bx bx-phone'></i>
+                            <span>+254 7XX XXX XXX</span>
+                        </li>
+                        <li class="contact-item">
+                            <i class='bx bx-map'></i>
+                            <span>Nairobi, Kenya</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="contact-social">
+                        <p>Connect with me:</p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/john-otieno-2b4bbb306" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                            <a href="https://github.com/John-V-Coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://www.instagram.com/coco.veey" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                            <a href="https://x.com/Omondijohn7880" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                <i class='bx bxl-twitter'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#home" class="logo">J</a>
+                <p class="footer-tagline">Building digital solutions for tomorrow</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-title">Contact</h4>
+                <ul class="footer-contact-list">
+                    <li><i class='bx bx-envelope'></i> omondijohn669@gmail.com</li>
+                    <li><i class='bx bx-map'></i> Nairobi, Kenya</li>
+                </ul>
+            </div>
         </div>
-        <div class="home-img">
-            <img src="assets/image.jpg" alt="Profile Image">
+        
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/john-otieno-2b4bbb306" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+                <a href="https://github.com/John-V-Coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class='bx bxl-github'></i>
+                </a>
+                <a href="https://www.instagram.com/coco.veey" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+                <a href="https://x.com/Omondijohn7880" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+            </div>
+            
+            <p class="copyright">
+                &copy; <span id="year"></span> John Vernest Otieno. All rights reserved.
+            </p>
         </div>
-    </section>    
-
-    <!--about-->
-    <section class="about" id="about">
-    <div class="about-img">
-        <img src="https://l450v.alamy.com/450v/2axj6je/laptop-with-code-on-screen-hanging-over-icons-programming-app-software-development-web-coding-isometric-conceptual-illustration-about-collaboration-2axj6je.jpg" alt="Profile Image">
-    <div class="floating-skills">
-      <span class="skill">HTML</span>
-      <span class="skill">CSS</span>
-      <span class="skill">JavaScript</span>
-      <span class="skill">React</span>
-      <span class="skill">Express.js</span>
-      <span class="skill">MongoDB</span>
-      <span class="skill">Node.js</span>
-      <span class="skill">Python</span>
-      <span class="skill">Django</span>
-      <span class="skill">Git</span>
-      <span class="skill">SQL</span>
-      <span class="skill">My Skills</span>
-    </div>
-    </div>   
-
-    <div class="about-content">
-        <h2 class="heading">About<span>Me</span></h2>
-        <h3>I'am a <span>Web Developer</span></h3>
-        <p>
-            I am a dedicated and goal-oriented professional who approaches every project with discipline, integrity, and meticulous attention to detail. My passion for technology is driven by a genuine desire to learn, grow, and apply my skills to solve real-world challenges effectively.
-
-            With a strong foundation in software development and problem-solving, I bring a collaborative mindset that values teamwork and clear communication. I am committed to delivering high-quality, impactful solutions that exceed expectations and create real value.
-
-            If you're looking for a reliable developer who is eager to contribute and grow with your team or project, feel free to reach out at <i class='bx bxl-gmail'></i> omondijohn669@gmail.com
-        </p>
-     </div>
-    
-    </section>
-
-       
-    <!--portfolio-->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">My <span>Portfolio</span></h2>
-
-    <div class="portfolio-content">
-    <div class="portfolio-item">
-      <img src="assets/1.jpg" alt="Fullstack Project">
-      <div class="portfolio-details">
-        <h5>Web Development</h5>
-        <h4>Fullstack Development</h4>
-        <p>Modern, responsive websites using Python, Django framework, HTML/CSS & JavaScript.</p>
-        <a href="https://github.com/John-V-Coder/GreenFutureSociety.git" target="_blank" class="portfolio-link">
-          <i class="bx bxl-github"></i> View Code
-        </a>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <img src="assets/2.jpg" alt="Web Design Project">
-      <div class="portfolio-details">
-        <h5>Web Designing</h5>
-        <h4>Customer-Friendly UI</h4>
-        <p>Beautiful and intuitive user interfaces that are mobile-first and accessible.</p>
-        <a href="https://github.com/John-V-Coder/Zen_Den_For_Scholars.git" target="_blank" class="portfolio-link">
-          <i class="bx bxl-github"></i> View Code
-        </a>
-      </div>
-    </div>
-
-   <div class="portfolio-item">
-      <img src="assets/3.png" alt="Mobile App Project">
-      <div class="portfolio-details">
-        <h5>Mobile Applications</h5>
-        <h4>Top-Rated Apps</h4>
-        <p>Fast, scalable Android apps using Kotlin and Jetpack Compose.</p>
-        <a href="https://github.com/John-V-Coder/MobileApp.git" target="_blank" class="portfolio-link">
-          <i class="bx bxl-github"></i> View Code
-        </a>
-      </div>
-    </div>
-    </div>
-    </section>
-
-
-
-    <!--contact-->
-    <section class="contact" id="contact">
-
-  <h2 class="heading">Contact <span>Me</span></h2>
-
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
-
-    <!-- Netlify form setup -->
-    <input type="hidden" name="form-name" value="contact" />
-    <p class="hidden">
-      <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-    </p>
-
-    <div class="input-box">
-      <input type="text" name="full_name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-    </div>
-
-    <div class="input-box">
-      <input type="number" name="phone" placeholder="Phone Number">
-      <input type="text" name="subject" placeholder="Email Subject" required>
-    </div>
-
-    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-
-    <input type="submit" value="Send Message" class="btn">
-  </form>
-
-</section>
-
-    
-    <!--footer-->
-    
-  <footer class="footer">
-    <div class="social">
-      <a href="https://www.linkedin.com/in/john-otieno-2b4bbb306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class='bx bxl-linkedin'></i></a>
-      <a href="https://github.com/John-V-Coder" target="_blank"><i class='bx bxl-github'></i></a>
-      <a href="https://www.instagram.com/coco.veey?igsh=MTlieHIyOGxrcGRldA==" target="_blank"><i class='bx bxl-instagram'></i></a>
-      <a href="https://x.com/Omondijohn7880?t=CjQXLday_H-DDt6PSwobmg&s=09" target="_blank"><i class='bx bxl-twitter'></i></a>
-    </div>
-
-    <p class="copyright">
-      &copy; <span id="year"></span> John Vernest | All Rights Reserved
-    </p>    
-  </footer>
- 
+    </footer>
    
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
 </body>    
 </html>
-
-    
