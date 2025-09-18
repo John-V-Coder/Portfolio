@@ -78,11 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
         if (window.scrollY > 50) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.classList.add('scrolled');
         } else {
-            header.style.boxShadow = '';
-            header.style.background = '';
+            header.classList.remove('scrolled');
         }
     });
     
@@ -140,4 +138,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // Example: 
         // const typed = new Typed('.typed-element', { strings: [], typeSpeed: 50 });
     }
+
+    // Theme switcher
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const themes = ['white', 'dark', 'blue', 'brown'];
+    let currentThemeIndex = 0;
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const icon = themeToggleButton.querySelector('i');
+        if (theme === 'dark') {
+            icon.classList.remove('bxs-moon');
+            icon.classList.add('bxs-sun');
+        } else {
+            icon.classList.add('bxs-moon');
+            icon.classList.remove('bxs-sun');
+        }
+    }
+
+    themeToggleButton.addEventListener('click', () => {
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        setTheme(themes[currentThemeIndex]);
+    });
+
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme && themes.includes(savedTheme)) {
+            currentThemeIndex = themes.indexOf(savedTheme);
+            setTheme(savedTheme);
+        } else {
+            setTheme('white');
+        }
+    }
+
+    loadTheme();
 });
