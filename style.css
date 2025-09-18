@@ -57,6 +57,14 @@
     color: #1a1a1a;
 }
 
+[data-theme='dark'] .logo {
+    color: var(--background);
+}
+
+[data-theme='dark'] .footer-brand .logo {
+    color: var(--background);
+}
+
 .header.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -151,7 +159,7 @@ ul {
 
 .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .section-title {
@@ -254,12 +262,18 @@ ul {
     font-size: 1.5rem;
 }
 
-/* Hero Section */
-.hero {
-    min-height: 100vh;
+.header-right {
     display: flex;
     align-items: center;
-    padding: 6rem 5% 2rem;
+    gap: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 4rem;
 }
 
 .hero-content {
@@ -320,20 +334,36 @@ ul {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    width: 90%;
+    height: 90%;
+    background-color: var(--light-background);
+    border-radius: 1.5rem;
+    z-index: -1;
 }
 
 .hero-image img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     border-radius: 1rem;
     box-shadow: var(--shadow);
+    border: 5px solid var(--background);
 }
 
 /* About Section */
 .about-section {
-    padding: 5rem 5%;
+    padding: 4rem 5%;
     background-color: var(--light-background);
 }
 
@@ -429,7 +459,7 @@ ul {
 
 /* Portfolio Section */
 .portfolio-section {
-    padding: 5rem 5%;
+    padding: 4rem 5%;
 }
 
 .portfolio-grid {
@@ -505,7 +535,7 @@ ul {
 
 /* Contact Section */
 .contact-section {
-    padding: 5rem 5%;
+    padding: 4rem 5%;
     background-color: var(--light-background);
 }
 
@@ -591,7 +621,7 @@ textarea.form-control {
 .footer {
     background-color: var(--text-color);
     color: white;
-    padding: 3rem 5% 1rem;
+    padding: 2rem 5% 1rem;
 }
 
 .footer-content {
