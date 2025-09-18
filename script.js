@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Theme switcher
     const themeToggleButton = document.getElementById('theme-toggle');
-    const themes = ['white', 'dark', 'blue', 'brown'];
+    const themes = ['white', 'dark', 'blue', 'brown', 'green', 'purple'];
     let currentThemeIndex = 0;
 
     function setTheme(theme) {

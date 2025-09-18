@@ -53,6 +53,28 @@
     --border-color: #a0522d;
 }
 
+[data-theme='green'] {
+    --primary-color: #28a745;
+    --secondary-color: #218838;
+    --accent-color: #28a745;
+    --text-color: #ffffff;
+    --light-text: #f8f9fa;
+    --background: #343a40;
+    --light-background: #495057;
+    --border-color: #6c757d;
+}
+
+[data-theme='purple'] {
+    --primary-color: #6f42c1;
+    --secondary-color: #5a32a3;
+    --accent-color: #6f42c1;
+    --text-color: #ffffff;
+    --light-text: #f8f9fa;
+    --background: #343a40;
+    --light-background: #495057;
+    --border-color: #6c757d;
+}
+
 [data-theme='dark'] .btn-primary {
     color: #1a1a1a;
 }
