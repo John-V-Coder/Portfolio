@@ -1,0 +1,15 @@
+# netlify.toml
+[[redirects]]
+  from = "/thank-you.html"
+  to = "/thank-you.html"
+  status = 200
+
+[build]
+  publish = "."
+
+# Form settings (optional - can also be set in Netlify UI)
+[[headers]]
+  for = "/thank-you.html"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

@@ -30,38 +30,48 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.querySelector('i').classList.remove('bx-x');
         });
     });
-    
-    // Form submission handling
+
+    // Enhanced form handling for Netlify
     const contactForm = document.querySelector('.contact-form');
+    
     if (contactForm) {
+        // Clear form on page load if coming from thank you page
+        if (sessionStorage.getItem('formSubmitted')) {
+            contactForm.reset();
+            sessionStorage.removeItem('formSubmitted');
+        }
+        
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const formData = new FormData(contactForm);
+            // Basic validation
+            const inputs = contactForm.querySelectorAll('input, textarea');
             let isValid = true;
             
-            for (let [key, value] of formData.entries()) {
-                if (key !== 'bot-field' && value.trim() === '') {
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
                     isValid = false;
-                    const input = contactForm.querySelector(`[name="${key}"]`);
                     input.style.borderColor = 'red';
                     
-                    // Remove error style after delay
                     setTimeout(() => {
                         input.style.borderColor = '';
                     }, 3000);
                 }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+                return;
             }
             
-            if (isValid) {
-                // Show success message (in a real scenario, you would submit to a server)
-                alert('Message sent successfully! I will get back to you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
+            // Store submission state for thank you page
+            sessionStorage.setItem('formSubmitted', 'true');
         });
+    }
+    
+    // Thank you page specific code
+    if (window.location.pathname.includes('thank-you')) {
+        // You can add any thank you page specific JavaScript here
+        console.log('Thank you page loaded');
     }
     
     // Add scroll event listener for header styling
