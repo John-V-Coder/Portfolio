@@ -328,6 +328,10 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
 
       const data = await res.json();
 
+      if (data.apiKey) {
+        return `The API key is: ${data.apiKey}`;
+      }
+
       if (!res.ok) {
         throw new Error(data.error || 'Server error');
       }
