@@ -7,6 +7,9 @@
 [build]
   publish = "."
 
+[functions]
+  directory = "functions"
+
 # Form settings (optional - can also be set in Netlify UI)
 [[headers]]
   for = "/thank-you.html"
