@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient -->
+    <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff88" />
+      <stop offset="100%" stop-color="#0088ff" />
+    </linearGradient>
+    <!-- Soft glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Hexagon frame -->
+
+<polygon points="200,60 280,110 280,190 200,240 120,190 120,110" 
+        fill="none" stroke="url(#techGrad)" stroke-width="3" opacity="0.7" filter="url(#glow)"/>
+
+  <!-- BP logo (simplified circuit style) -->
+
+  <g transform="translate(200,150)" filter="url(#glow)">
+    <!-- B -->
+    <path d="M -45,-35 L -45,35 M -45,-35 L -20,-35 Q -5,-35 -5,-20 Q -5,-5 -20,-5 L -45,-5 M -45,-5 L -20,-5 Q -5,-5 -5,15 Q -5,35 -20,35 L -45,35"
+          fill="none" stroke="url(#techGrad)" stroke-width="6" stroke-linecap="square"/>
+    <!-- P -->
+    <path d="M 10,-35 L 10,35 M 10,-35 L 35,-35 Q 50,-35 50,-15 Q 50,5 35,5 L 10,5"
+          fill="none" stroke="url(#techGrad)" stroke-width="6" stroke-linecap="square"/>
+  </g>
+
+  <!-- HUB text -->
+
+  <g transform="translate(200,300)" filter="url(#glow)">
+    <text x="0" y="10" text-anchor="middle" fill="url(#techGrad)" 
+          font-size="32" font-family="Courier New, monospace" font-weight="bold" letter-spacing="12">
+      HUB
+    </text>
+  </g>
+</svg>
