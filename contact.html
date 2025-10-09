@@ -36,7 +36,8 @@
  <main>
   <section class="contact">
     <h2>Get in Touch</h2>
-    <form action="thank-you.html" method="POST">
+    <form name="contact" method="POST" action="/thank-you.html" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="text" name="topic" placeholder="Topic / Subject" required>
