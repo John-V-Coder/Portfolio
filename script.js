@@ -326,12 +326,16 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
         body: JSON.stringify({ prompt })
       });
 
-      if (!res.ok) throw new Error('Server error');
       const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Server error');
+      }
+      
       return data.answer;
     } catch (err) {
       console.error(err);
-      return 'Sorry, I could not fetch a response.';
+      return `Sorry, I could not fetch a response. ${err.message}`;
     }
   }
 

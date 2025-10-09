@@ -1,5 +1,5 @@
-// api/chat.js
 exports.handler = async function(event, context) {
+  console.log("GEMINI_API_KEY is set:", !!process.env.GEMINI_API_KEY);
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -17,7 +17,7 @@ exports.handler = async function(event, context) {
   }
 
   try {
-    const response = await fetch(
+    const apiResponse = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: 'POST',
@@ -28,7 +28,26 @@ exports.handler = async function(event, context) {
       }
     );
 
-    const data = await response.json();
+    const responseText = await apiResponse.text();
+
+    if (!apiResponse.ok) {
+        let error = 'An unknown error occurred.';
+        try {
+            const errorJson = JSON.parse(responseText);
+            if (errorJson.error && errorJson.error.message) {
+                error = errorJson.error.message;
+            }
+        } catch (e) {
+            // The response was not valid JSON
+            error = responseText;
+        }
+        return {
+            statusCode: apiResponse.status,
+            body: JSON.stringify({ error }),
+        };
+    }
+
+    const data = JSON.parse(responseText);
     const answer = data.candidates[0].content.parts[0].text;
 
     return {
@@ -39,7 +58,7 @@ exports.handler = async function(event, context) {
     console.error(err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to fetch response' }),
+      body: JSON.stringify({ error: 'Failed to fetch response from serverless function.' }),
     };
   }
 }
