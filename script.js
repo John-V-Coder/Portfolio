@@ -326,10 +326,20 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
         body: JSON.stringify({ prompt })
       });
 
-      const data = await res.json();
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (e) {
+        // response is empty or invalid JSON
+        throw new Error('Invalid JSON from server');
+      }
 
       if (!res.ok) {
-        throw new Error(data.error || 'Server error');
+        throw new Error((data && data.error) || 'Server error');
+      }
+
+      if (!data || typeof data.answer !== 'string') {
+        throw new Error('Malformed server response');
       }
 
       return data.answer;
