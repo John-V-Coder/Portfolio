@@ -317,12 +317,18 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Call Netlify serverless function
+  // Call Supabase Edge Function
   async function generateResponse(prompt) {
     try {
-      const res = await fetch('/.netlify/functions/chat', {
+      const supabaseUrl = 'https://ymlippnwcakvcwehwncx.supabase.co';
+      const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltbGlwcG53Y2FrdmN3ZWh3bmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwMTEwMjcsImV4cCI6MjA3NzU4NzAyN30.6n192j9_eVomhjbXN-1yrvxQfOcgjDmibm3G0xyQ_cs';
+
+      const res = await fetch(`${supabaseUrl}/functions/v1/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${anonKey}`
+        },
         body: JSON.stringify({ prompt })
       });
 
