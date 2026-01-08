@@ -138,10 +138,11 @@ if (contactForm) {
                     window.location.hostname === '127.0.0.1' ||
                     window.location.protocol === 'file:';
 
+    // Only intercept for local testing
     if (isLocal) {
       e.preventDefault();
 
-      // Get form data
+      // Store form data
       const formData = new FormData(contactForm);
       const data = {
         name: formData.get('name'),
@@ -150,15 +151,12 @@ if (contactForm) {
         message: formData.get('message')
       };
 
-      // Store in sessionStorage for confirmation
       sessionStorage.setItem('formSubmission', JSON.stringify(data));
 
-      // Simulate form submission for local testing
-      setTimeout(() => {
-        window.location.replace('thank-you.html');
-      }, 100);
+      // Redirect to thank you page
+      window.location.href = 'thank-you.html';
     }
-    // If on Netlify, let the form submit naturally with data-netlify
+    // On Netlify, form submits naturally to /thank-you.html
   });
 }
 
