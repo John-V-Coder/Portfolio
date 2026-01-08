@@ -1,18 +1,13 @@
-[[redirects]]
-from = "/thank-you.html"
-to = "/thank-you.html"
-status = 200
-
 [build]
-publish = "dist"
-command = "npm run build"
+publish = "."
 
 [functions]
 directory = "functions"
 
 [[headers]]
-for = "/thank-you.html"
+for = "/*"
 
 [headers.values]
 X-Frame-Options = "DENY"
 X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
