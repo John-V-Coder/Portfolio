@@ -188,12 +188,11 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Form submission handler (if contact form exists)
+// Form submission handler (only for non-Netlify forms)
 const contactForm = document.querySelector('form');
-if (contactForm) {
+if (contactForm && !contactForm.hasAttribute('data-netlify')) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Add your form submission logic here
     alert('Form submitted! (Add your backend logic here)');
   });
 }
