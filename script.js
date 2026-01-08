@@ -140,8 +140,23 @@ if (contactForm) {
 
     if (isLocal) {
       e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        topic: formData.get('topic'),
+        message: formData.get('message')
+      };
+
+      // Store in sessionStorage for confirmation
+      sessionStorage.setItem('formSubmission', JSON.stringify(data));
+
       // Simulate form submission for local testing
-      window.location.href = 'thank-you.html';
+      setTimeout(() => {
+        window.location.replace('thank-you.html');
+      }, 100);
     }
     // If on Netlify, let the form submit naturally with data-netlify
   });
