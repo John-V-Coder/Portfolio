@@ -188,12 +188,21 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Form submission handler (only for non-Netlify forms)
-const contactForm = document.querySelector('form');
-if (contactForm && !contactForm.hasAttribute('data-netlify')) {
+// Form submission handler
+const contactForm = document.querySelector('form[name="contact"]');
+if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Form submitted! (Add your backend logic here)');
+    // Check if we're on localhost or file:// protocol (local testing)
+    const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.protocol === 'file:';
+
+    if (isLocal) {
+      e.preventDefault();
+      // Simulate form submission for local testing
+      window.location.href = 'thank-you.html';
+    }
+    // If on Netlify, let the form submit naturally with data-netlify
   });
 }
 
