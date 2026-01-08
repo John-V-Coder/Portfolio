@@ -84,13 +84,19 @@ body {
 /* Navigation */
 .navbar {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 3rem;
 }
 
 .nav-list {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-link {
@@ -1671,7 +1677,10 @@ footer p {
   color: var(--text-secondary);
   font-size: 0.8rem;
   text-align: right;
-  margin-left: 2rem;
+  margin-left: auto;
+  padding-left: 2rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .view-counter span {
