@@ -469,8 +469,39 @@ main {
   font-size: 1rem;
 }
 
-/* About Section Enhanced */
-.about-section {
+/* About Page Hero */
+.about-hero {
+  padding: 8rem 0 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 136, 255, 0.05) 100%);
+}
+
+.about-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.page-title span {
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-description {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* About Story Section */
+.about-story {
   padding: 6rem 0;
 }
 
@@ -539,6 +570,11 @@ main {
   line-height: 1.8;
 }
 
+/* About Section Enhanced (for home page) */
+.about-section {
+  padding: 6rem 0;
+}
+
 .about-highlights {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -572,6 +608,173 @@ main {
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+/* Values Section */
+.values-section {
+  padding: 6rem 0;
+  background: var(--card-bg);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background: var(--darker-bg);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-cyan);
+  box-shadow: 0 15px 40px var(--glow-cyan);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.value-card:hover .value-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.value-icon i {
+  font-size: 2.5rem;
+  color: var(--dark-bg);
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 6rem 0;
+}
+
+.mission-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.mission-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-cyan);
+  box-shadow: 0 15px 40px var(--glow-cyan);
+}
+
+.mission-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-icon i {
+  font-size: 3rem;
+  color: var(--dark-bg);
+}
+
+.mission-card h3 {
+  font-size: 2rem;
+  color: var(--primary-cyan);
+  margin-bottom: 1.5rem;
+}
+
+.mission-card p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Expertise Section */
+.expertise-section {
+  padding: 6rem 0;
+  background: var(--card-bg);
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.expertise-item {
+  background: var(--darker-bg);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.expertise-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-cyan);
+  box-shadow: 0 10px 30px var(--glow-cyan);
+}
+
+.expertise-item i {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.expertise-item h4 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.expertise-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* CTA Section */
@@ -1389,6 +1592,14 @@ footer p {
     gap: 1.5rem;
   }
 
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+  }
+
   .about-wrapper {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1405,6 +1616,29 @@ footer p {
 
   .about-highlights {
     grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mission-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mission-card {
+    padding: 2rem;
+  }
+
+  .mission-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .cta-content h2 {
