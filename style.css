@@ -83,18 +83,16 @@ body {
 
 .logo-text {
   margin-left: 12px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.5px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
   transition: var(--transition);
 }
 
 .logo:hover .logo-text {
-  letter-spacing: 1px;
+  color: var(--primary-cyan);
 }
 
 /* Navigation */
