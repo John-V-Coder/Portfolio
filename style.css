@@ -81,6 +81,22 @@ body {
   transform: scale(1.05);
 }
 
+.logo-text {
+  margin-left: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.logo:hover .logo-text {
+  letter-spacing: 1px;
+}
+
 /* Navigation */
 .navbar {
   display: flex;
