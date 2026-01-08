@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | John Otieno</title>
+  <title>Contact | Byte-Piper</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
   <header class="header">
      <a href="home.html#home" class="logo">
-          <img src="logo.svg" alt="BitPiper Logo" class="logo-img">
+          <img src="logo.svg" alt="Byte-Piper Logo" class="logo-img">
+          <span class="logo-text">Byte Piper</span>
         </a>
     <nav class="navbar">
       <ul class="nav-list">
@@ -36,8 +37,11 @@
  <main>
   <section class="contact">
     <h2>Get in Touch</h2>
-    <form name="contact" method="POST" action="/thank-you.html" data-netlify="true">
+    <form name="contact" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact">
+      <p style="display: none;">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="text" name="topic" placeholder="Topic / Subject" required>
@@ -67,7 +71,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <a href="home.html#home" class="logo">
-          <img src="logo.svg" alt="BitPiper Logo" class="logo-img">
+          <img src="logo.svg" alt="Byte-Piper Logo" class="logo-img">
         </a>
         <p class="footer-tagline">Building digital solutions for tomorrow</p>
       </div>
@@ -78,7 +82,7 @@
               <li><a href="home.html" class="nav-link active">Home</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="potfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         <li><a href="resources.html" class="nav-link">Resources</a></li>
         <li><a href="blog.html" class="nav-link">Blog</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -111,7 +115,7 @@
       </div>
       
       <p class="copyright">
-        &copy; <span id="year"></span> BitPiper Technologies. All rights reserved.
+        &copy; <span id="year"></span> Byte Piper. All rights reserved.
       </p>
     </div>
   </footer>

@@ -1,67 +1,20 @@
-// Update copyright year
-const yearSpan = document.getElementById('year');
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
-
-// Mobile menu toggle
-const menuIcon = document.getElementById('menu-icon');
-const navbar = document.querySelector('.navbar');
-
-if (menuIcon && navbar) {
-  menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    const icon = menuIcon.querySelector('i');
-    if (navbar.classList.contains('active')) {
-      icon.classList.replace('bx-menu', 'bx-x');
-    } else {
-      icon.classList.replace('bx-x', 'bx-menu');
-    }
-  });
-
-  // Close menu when clicking on a link
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('active');
-      const icon = menuIcon.querySelector('i');
-      icon.classList.replace('bx-x', 'bx-menu');
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
-      navbar.classList.remove('active');
-      const icon = menuIcon.querySelector('i');
-      if (icon) {
-        icon.classList.replace('bx-x', 'bx-menu');
-      }
-    }
-  });
-}
-
 // Theme toggle
-const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
-
-// Check for saved theme preference
-const currentTheme = localStorage.getItem('theme') || 'dark';
-if (currentTheme === 'light') {
-  body.classList.add('light-theme');
-  if (themeToggle) {
-    const icon = themeToggle.querySelector('i');
-    if (icon) {
-      icon.classList.replace('bxs-moon', 'bxs-sun');
-    }
-  }
-}
+const themeToggle = document.getElementById('theme-toggle');
 
 if (themeToggle) {
+  // Apply saved theme or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    body.classList.add('light-theme');
+    const icon = themeToggle.querySelector('i');
+    if (icon) icon.classList.replace('bxs-moon', 'bxs-sun');
+  }
+
   themeToggle.addEventListener('click', () => {
     body.classList.toggle('light-theme');
     const icon = themeToggle.querySelector('i');
-    
+
     if (body.classList.contains('light-theme')) {
       icon.classList.replace('bxs-moon', 'bxs-sun');
       localStorage.setItem('theme', 'light');
@@ -77,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     if (href === '#') return;
-    
+
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
@@ -103,10 +56,10 @@ const header = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
-  
+
   if (currentScroll > 50) {
-    header.style.background = body.classList.contains('light-theme') 
-      ? 'rgba(255, 255, 255, 0.95)' 
+    header.style.background = body.classList.contains('light-theme')
+      ? 'rgba(255, 255, 255, 0.95)'
       : 'rgba(10, 14, 39, 0.95)';
     header.style.boxShadow = '0 5px 20px rgba(0, 255, 136, 0.1)';
   } else {
@@ -115,7 +68,7 @@ window.addEventListener('scroll', () => {
       : 'rgba(10, 14, 39, 0.5)';
     header.style.boxShadow = 'none';
   }
-  
+
   lastScroll = currentScroll;
 });
 
@@ -130,13 +83,13 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = '0';
       entry.target.style.transform = 'translateY(30px)';
-      
+
       setTimeout(() => {
         entry.target.style.transition = 'all 0.6s ease-out';
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
       }, 100);
-      
+
       observer.unobserve(entry.target);
     }
   });
@@ -154,7 +107,7 @@ document.querySelectorAll('.btn').forEach(btn => {
     const size = Math.max(rect.width, rect.height);
     const x = e.clientX - rect.left - size / 2;
     const y = e.clientY - rect.top - size / 2;
-    
+
     ripple.style.width = ripple.style.height = size + 'px';
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
@@ -163,11 +116,11 @@ document.querySelectorAll('.btn').forEach(btn => {
     ripple.style.background = 'rgba(255, 255, 255, 0.5)';
     ripple.style.pointerEvents = 'none';
     ripple.style.animation = 'ripple 0.6s ease-out';
-    
+
     this.style.position = 'relative';
     this.style.overflow = 'hidden';
     this.appendChild(ripple);
-    
+
     setTimeout(() => ripple.remove(), 600);
   });
 });
@@ -188,13 +141,28 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Form submission handler (if contact form exists)
-const contactForm = document.querySelector('form');
+// Form submission handler
+const contactForm = document.querySelector('form[name="contact"]');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Form submitted! (Add your backend logic here)');
+    const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.protocol === 'file:';
+
+    if (isLocal) {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        topic: formData.get('topic'),
+        message: formData.get('message')
+      };
+
+      sessionStorage.setItem('formSubmission', JSON.stringify(data));
+      window.location.href = 'thank-you.html';
+    }
   });
 }
 
@@ -215,16 +183,16 @@ serviceCards.forEach(card => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const rotateX = (y - centerY) / 10;
     const rotateY = (centerX - x) / 10;
-    
+
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
   });
-  
+
   card.addEventListener('mouseleave', () => {
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
   });
@@ -233,28 +201,30 @@ serviceCards.forEach(card => {
 // Scroll to top button
 const scrollToTopBtn = document.getElementById('scroll-to-top');
 
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
-    scrollToTopBtn.classList.add('visible');
-  } else {
-    scrollToTopBtn.classList.remove('visible');
-  }
-});
-
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (scrollToTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
   });
-});
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
 // Typing effect for hero title (if on home page)
 const heroTitle = document.querySelector('.hero h1');
-if (heroTitle && window.location.pathname.includes('home.html') || window.location.pathname === '/') {
+if (heroTitle && (window.location.pathname.includes('home.html') || window.location.pathname === '/')) {
   const text = heroTitle.textContent;
   heroTitle.textContent = '';
   let i = 0;
-  
+
   const typeWriter = () => {
     if (i < text.length) {
       heroTitle.textContent += text.charAt(i);
@@ -262,30 +232,35 @@ if (heroTitle && window.location.pathname.includes('home.html') || window.locati
       setTimeout(typeWriter, 100);
     }
   };
-  
-  // Start typing after a short delay
+
   setTimeout(typeWriter, 500);
 }
-// View counter using CountAPI
-  const totalCounter = "john-portfolio-total"; // total unique key
-  const weeklyCounter = "john-portfolio-weekly"; // weekly unique key
 
-  async function updateCounters() {
-    // Update and fetch total count
+// View counter using CountAPI
+const totalCounter = "john-portfolio-total";
+const weeklyCounter = "john-portfolio-weekly";
+
+async function updateCounters() {
+  try {
     const total = await fetch(`https://api.countapi.xyz/hit/bitpiper/${totalCounter}`)
       .then(res => res.json());
-    
-    // Update and fetch weekly count
+
     const week = await fetch(`https://api.countapi.xyz/hit/bitpiper/${weeklyCounter}`)
       .then(res => res.json());
 
-    document.getElementById("total-views").textContent = total.value;
-    document.getElementById("weekly-views").textContent = week.value;
-  }
+    const totalEl = document.getElementById("total-views");
+    const weeklyEl = document.getElementById("weekly-views");
 
+    if (totalEl) totalEl.textContent = total.value;
+    if (weeklyEl) weeklyEl.textContent = week.value;
+  } catch (err) {
+    console.error('Counter update failed:', err);
+  }
+}
+
+if (document.getElementById("total-views") || document.getElementById("weekly-views")) {
   updateCounters();
 
-  // Reset weekly counter every 7 days automatically
   const lastReset = localStorage.getItem("lastReset");
   const now = new Date();
 
@@ -293,6 +268,7 @@ if (heroTitle && window.location.pathname.includes('home.html') || window.locati
     fetch(`https://api.countapi.xyz/set/bitpiper/${weeklyCounter}?value=0`);
     localStorage.setItem("lastReset", now.toISOString());
   }
+}
 
 // Chatbot widget
 const chatWidget = document.getElementById('chatbot-widget');
@@ -302,13 +278,10 @@ const chatInput = document.getElementById('chatbot-input');
 const chatSend = document.getElementById('chatbot-send');
 
 if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
-
-  // Toggle chatbot visibility
   chatToggle.addEventListener('click', () => {
     chatWidget.style.display = 'none';
   });
 
-  // Add message to chat
   function addMessage(msg, isUser) {
     const div = document.createElement('div');
     div.textContent = msg;
@@ -317,12 +290,17 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Call Netlify serverless function
   async function generateResponse(prompt) {
     try {
-      const res = await fetch('/.netlify/functions/chat', {
+      const supabaseUrl = 'https://ymlippnwcakvcwehwncx.supabase.co';
+      const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltbGlwcG53Y2FrdmN3ZWh3bmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwMTEwMjcsImV4cCI6MjA3NzU4NzAyN30.6n192j9_eVomhjbXN-1yrvxQfOcgjDmibm3G0xyQ_cs';
+
+      const res = await fetch(`${supabaseUrl}/functions/v1/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${anonKey}`
+        },
         body: JSON.stringify({ prompt })
       });
 
@@ -330,7 +308,6 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
       try {
         data = await res.json();
       } catch (e) {
-        // response is empty or invalid JSON
         throw new Error('Invalid JSON from server');
       }
 
@@ -349,7 +326,6 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
     }
   }
 
-  // Handle user input
   async function handleChat() {
     const msg = chatInput.value.trim();
     if (!msg) return;
@@ -359,7 +335,6 @@ if (chatWidget && chatToggle && chatMessages && chatInput && chatSend) {
     addMessage(botReply, false);
   }
 
-  // Event listeners
   chatSend.addEventListener('click', handleChat);
   chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') handleChat();
