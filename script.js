@@ -1,26 +1,4 @@
-{
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light-theme');
-    const icon = themeToggle.querySelector('i');
-    
-    if (body.classList.contains('light-theme')) {
-      icon.classList.replace('bxs-moon', 'bxs-sun');
-      localStorage.setItem('theme', 'light');
-    } else {
-      icon.classList.replace('bxs-sun', 'bxs-moon');
-      localStorage.setItem('theme', 'dark');
-    }
-  });
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-    
-    e.preventDefault();
-    const target = document.querySelector(href);
+ocument.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
