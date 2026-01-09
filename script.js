@@ -270,6 +270,55 @@ if (document.getElementById("total-views") || document.getElementById("weekly-vi
   }
 }
 
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-icon');
+const navbar = document.querySelector('.navbar');
+
+if (menuToggle && navbar) {
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    if (navbar.classList.contains('active')) {
+      icon.classList.replace('bx-menu', 'bx-x');
+      document.body.style.overflow = 'hidden';
+    } else {
+      icon.classList.replace('bx-x', 'bx-menu');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.replace('bx-x', 'bx-menu');
+      document.body.style.overflow = '';
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+      navbar.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon.classList.contains('bx-x')) {
+        icon.classList.replace('bx-x', 'bx-menu');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      navbar.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon.classList.contains('bx-x')) {
+        icon.classList.replace('bx-x', 'bx-menu');
+      }
+      document.body.style.overflow = '';
+    }
+  });
+}
+
 // Chatbot widget
 const chatWidget = document.getElementById('chatbot-widget');
 const chatToggle = document.getElementById('chatbot-toggle');
