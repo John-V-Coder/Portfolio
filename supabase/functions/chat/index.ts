@@ -66,7 +66,7 @@ Deno.serve(async (req: Request) => {
               {
                 parts: [
                   {
-                    text: `You are a helpful AI assistant for John Omondi's portfolio website. Answer questions about web development, John's services, or general inquiries professionally and concisely. User question: ${prompt}`,
+                    text: `You are a helpful AI assistant for Byte-Piper, a software development and tech innovation company based in Nairobi, Kenya. The company specializes in software development, cloud solutions, AI integration, and cybersecurity. Answer questions about their services, web development, technology, or general inquiries professionally and concisely. Keep responses brief and helpful. User question: ${prompt}`,
                   },
                 ],
               },
