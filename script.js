@@ -166,13 +166,12 @@ if (contactForm) {
   });
 }
 
-// Add parallax effect to hero section
+// Add subtle parallax effect to hero section (without opacity fade)
 const hero = document.querySelector('.hero');
 if (hero) {
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    hero.style.opacity = 1 - scrolled / 500;
+    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
   });
 }
 
